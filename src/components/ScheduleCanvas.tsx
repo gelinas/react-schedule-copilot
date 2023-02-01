@@ -2,10 +2,18 @@ import { Box } from "@mui/system";
 import { StyleConstants } from "../StyleConstants";
 import dayjs from "dayjs";
 import { DeveloperRows } from "./DeveloperRows";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { fetchShifts } from "../api/shiftSlice";
 
 export const daysOfTheWeek = [1, 2, 3, 4, 5, 6, 7];
 
 export const ScheduleCanvas = () => {
+  const dispatch = useDispatch<any>();
+  // fetch all shifts from the API
+  useEffect(() => {
+    dispatch(fetchShifts());
+  }, [dispatch]);
   return (
     <Box
       sx={{

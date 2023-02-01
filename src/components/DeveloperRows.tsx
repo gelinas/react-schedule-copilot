@@ -1,24 +1,25 @@
 import { Box } from "@mui/system";
+import { HoverToScheduleRow } from "./HoverToScheduleRow";
 import { daysOfTheWeek } from "./ScheduleCanvas";
 
 const developers = [
   {
     name: "Louis",
-    id: "1",
+    id: 1,
     color: "red",
   },
   {
     name: "Andy",
-    id: "2",
+    id: 2,
     color: "blue",
   },
   {
     name: "Scott",
-    id: "3",
+    id: 3,
     color: "green",
   },
-  { name: "James", id: "4", color: "black" },
-  { name: "Nate", id: "5", color: "orange" },
+  { name: "James", id: 4, color: "black" },
+  { name: "Nate", id: 5, color: "orange" },
 ];
 
 /**
@@ -61,7 +62,7 @@ export const DeveloperRows = () => {
           >
             <DeveloperCard developer={developer} />
           </Box>
-          <HoverToScheduleRow />
+          <HoverToScheduleRow developer={developer} />
         </Box>
       ))}
     </Box>
@@ -74,7 +75,7 @@ export const DeveloperRows = () => {
 const DeveloperCard = ({
   developer,
 }: {
-  developer: { name: string; id: string; color: string };
+  developer: { name: string; id: number; color: string };
 }) => {
   return (
     <Box
@@ -91,52 +92,6 @@ const DeveloperCard = ({
       }}
     >
       {developer.name}
-    </Box>
-  );
-};
-
-/**
- * Hover to schedule row is a row that shows up when the user hovers over a developer row
- * it represents the intersection of the developer and the day
- * the row appears gray when the user is hovering over a developer row
- * the specific day the user is hovering over is highlighted in blue with a white "+" icon in the middle
- */
-
-const HoverToScheduleRow = () => {
-  return (
-    <Box
-      sx={{
-        flex: 1,
-        height: "50px",
-        display: "flex",
-        justifyContent: "flex-start",
-        alignItems: "center",
-        "&:hover": {
-          backgroundColor: "grey",
-          opacity: 0.5,
-        },
-      }}
-    >
-      {daysOfTheWeek.map((day) => (
-        <Box // Day Cell
-          key={day}
-          sx={{
-            flex: 1,
-            height: "100%",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            color: "white",
-            opacity: 0,
-            "&:hover": {
-              backgroundColor: "blue",
-              opacity: 0.5,
-            },
-          }}
-        >
-          +
-        </Box>
-      ))}
     </Box>
   );
 };
