@@ -4,7 +4,7 @@ import {
   createSlice,
   createSelector,
 } from "@reduxjs/toolkit";
-import { ShiftInterface } from "../types";
+import { ShiftInterface } from "./types";
 import ShiftApi, { ShiftRequest } from "./ShiftApi";
 import { RootState } from "./store";
 
