@@ -18,8 +18,8 @@ const developers = [
     id: 3,
     color: "green",
   },
-  { name: "James", id: 4, color: "black" },
-  { name: "Nate", id: 5, color: "orange" },
+  { name: "Alan", id: 4, color: "black" },
+  { name: "Mariah", id: 5, color: "orange" },
 ];
 
 /**
